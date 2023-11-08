@@ -1,10 +1,11 @@
 import "./home.scss"
 import { Button } from "../../utils"
+import Hero from "../../components/hero/Hero"
 
 const Home = () => {
   return (
     <div>
-      <Button text="Get Started" type="small" loading={false}/>
+      <Hero/>
     </div>
   )
 }

@@ -4,3 +4,24 @@
     height: 1 !important;
 }
 
+.nav{
+    background-color: var(--p-bg-color);
+    border-bottom: 1px solid var(--p-bg-dark);
+}
+.nav__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.nav__list{
+    display: flex;
+    gap: 0 20px;
+    padding: 30px 0;
+    .nav__link{
+        text-decoration: none;
+        color: var(--p-text-dark);
+        font-size: 20px;
+    }
+}
+
