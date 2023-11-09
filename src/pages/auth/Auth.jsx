@@ -12,7 +12,7 @@ const Auth = () => {
                 <NavLink className={({isActive}) => isActive ?  "auth__nav-link auth__nav-link--active" : "auth-_nav-link" } to="/auth/login">Login</NavLink>
               </li>
               <li className="auth__nav-item">
-                <NavLink  className={({isActive}) => isActive ? "auth__nav-link auth__nav-link--active" : "auth-_nav-link"  } to="/auth/signup">Login</NavLink>
+                <NavLink  className={({isActive}) => isActive ? "auth__nav-link auth__nav-link--active" : "auth-_nav-link"  } to="/auth/signup">Sign Up</NavLink>
               </li>
             </ul>
           </nav>
