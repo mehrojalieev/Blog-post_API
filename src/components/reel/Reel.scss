@@ -1,0 +1,14 @@
+.home__reel{
+    padding-top: 50px;
+    h2{
+        font-size: 40px;
+        font-family: var(source-pro);
+    }
+}
+.reel__wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:  30px 20px;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}

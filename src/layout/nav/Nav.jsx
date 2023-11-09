@@ -1,15 +1,19 @@
 import nav from "./nav.scss"
 import { Container } from "../../utils"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import Logo from "../../assets/images/logo.svg"
+const EXPECTION_ROUTES = ["/auth/login", "/auth/signup", "/admin"]
+
 
 const Nav = ({type}) => {
-  return (
+  const {pathname} = useLocation()
+  console.log(pathname);
+  return !EXPECTION_ROUTES.includes(pathname) && (
     <nav className="nav">
         <Container>
             <div className="nav__wrapper">
                 <div className="nav__logo">
-                    <img src={Logo} alt="" width={200}  />
+                    <img src={Logo} alt="Logo of Medium" width={200}  />
                     <h1 className="nav__seo-title">Medium</h1>
                 </div>
                 <ul className="nav__list">
