@@ -3,11 +3,16 @@ import { Container } from "../../utils"
 import { NavLink, useLocation } from "react-router-dom"
 import Logo from "../../assets/images/logo.svg"
 const EXPECTION_ROUTES = ["/auth/login", "/auth/signup", "/admin"]
-
+// import apiInstanse from "../../services/api"
+// import { useEffect } from "react"
 
 const Nav = ({type}) => {
+
+  // useEffect(() => {
+  //           apiInstanse("/api/users")
+  // }, [])
+    
   const {pathname} = useLocation()
-  console.log(pathname);
   return !EXPECTION_ROUTES.includes(pathname) && (
     <nav className="nav">
         <Container>
