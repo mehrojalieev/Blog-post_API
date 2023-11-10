@@ -2,16 +2,15 @@ import nav from "./nav.scss"
 import { Container } from "../../utils"
 import { NavLink, useLocation } from "react-router-dom"
 import Logo from "../../assets/images/logo.svg"
+import { useState } from "react"
 const EXPECTION_ROUTES = ["/auth/login", "/auth/signup", "/admin"]
-// import apiInstanse from "../../services/api"
-// import { useEffect } from "react"
+
 
 const Nav = ({type}) => {
 
-  // useEffect(() => {
-  //           apiInstanse("/api/users")
-  // }, [])
-    
+
+  const [userEmail, setUserEmail] = localStorage.getItem("user-email")
+
   const {pathname} = useLocation()
   return !EXPECTION_ROUTES.includes(pathname) && (
     <nav className="nav">
@@ -26,7 +25,7 @@ const Nav = ({type}) => {
                   <li className="nav__item"><NavLink className={({isActive}) => isActive ? "nav__link nav__link--active" : "nav__link"} to="/membership">Membership</NavLink></li>
                   <li className="nav__item"><NavLink className={({isActive}) => isActive ? "nav__link nav__link--active" : "nav__link"} to="/articles">Articles</NavLink></li>
                   <li className="nav__item"><NavLink className={({isActive}) => isActive ? "nav__link nav__link--active" : "nav__link"} to="/auth/login">Login</NavLink></li>
-                  <li className="nav__item"><NavLink className={({isActive}) => isActive ? "nav__link nav__link--active btn" : "nav__link btn"} to="/auth/signup">Get Started</NavLink></li>
+                  <li className="nav__item"><NavLink className={({isActive}) => isActive ? "nav__link nav__link--active btn" : "nav__link btn"} to="/auth/signup">{userEmail ? <p>Get Started</p> : <p>Log Out</p>}</NavLink></li>
                 </ul>
             </div>
         </Container>
