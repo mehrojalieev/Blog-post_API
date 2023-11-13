@@ -5,6 +5,7 @@ import Logo from "../../assets/images/logo.svg"
 import { useEffect, useState } from "react"
 import apiInstanse from "../../services/api"
 import { useValue } from "../../context/AppProvider"
+import Skeleton from "react-loading-skeleton"
 const EXPECTION_ROUTES = ["/auth/login", "/auth/signup", "/admin"]
 
 
@@ -25,7 +26,7 @@ const Nav = ({ type }) => {
       <Container>
         <div className="nav__wrapper">
           <div className="nav__logo">
-            <img src={Logo} alt="Logo of Medium" width={200} />
+            
             <h1 className="nav__seo-title">Medium</h1>
           </div>
           <ul className="nav__list">

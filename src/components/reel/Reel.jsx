@@ -3,6 +3,7 @@ import "./Reel.scss"
 import apiInstanse from '../../services/api'
 import { Container } from '../../utils/index'
 import ArticleCard from "../article-card/ArticleCard"
+import Skeleton from 'react-loading-skeleton'
 
 const Reel = () => {
     const [data, setData] = useState([])
@@ -31,7 +32,9 @@ const Reel = () => {
                             />
                         )
                 }
+                
             </div>
+            <Skeleton/>
         </Container>
     </div>
   )
