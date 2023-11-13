@@ -2,16 +2,24 @@ import nav from "./nav.scss"
 import { Container } from "../../utils"
 import { NavLink, useLocation } from "react-router-dom"
 import Logo from "../../assets/images/logo.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import apiInstanse from "../../services/api"
+import { useValue } from "../../context/AppProvider"
 const EXPECTION_ROUTES = ["/auth/login", "/auth/signup", "/admin"]
 
 
 const Nav = ({type}) => {
+const {pathname} = useLocation()
 
+const [state, dispatch] = useValue()
 
-  const [userEmail, setUserEmail] = localStorage.getItem("user-email")
-
-  const {pathname} = useLocation()
+useEffect(() => {
+  apiInstanse(`/api/users/${state.auth.user_id}`, {
+    headers: {
+      "Authorization": "Bearer " + state.auth.token
+    }
+  })
+}, [])
   return !EXPECTION_ROUTES.includes(pathname) && (
     <nav className="nav">
         <Container>

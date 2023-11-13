@@ -1,11 +1,12 @@
 import { useState } from "react"
 import apiInstance from "../../services/api/index"
 import { useValue } from "../../context/AppProvider"
+import { toast } from "react-toastify"
+import { useNavigate } from "react-router-dom"
 
 const SignUp = () => {
-
-    const [state, dispatch] = useValue({})
-
+    const navigate = useNavigate()
+    const [state, dispatch] = useValue()
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -22,14 +23,22 @@ const SignUp = () => {
         })
             .then(response => {
                 if (response.data.token) {
-                   const userData = {
-                    user: response.data.data,
-                    token: response.data.token
-                   }
+                    const userData = {
+                        user: response.data.data,
+                        token: response.data.token
+                    }
                     dispatch({ type: "AUTH", userData })
+                    toast.success("Successfully ")
+                    navigate("/")
+                }
+                else{
+                    throw new Error("Something went wrong")
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                toast.error(err.response.data.errors[0].msg)
+            })
     }
     return (
         <form className="auth-form" onSubmit={handleSubmitSignUp}>
