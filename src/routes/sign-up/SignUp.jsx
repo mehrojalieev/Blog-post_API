@@ -29,7 +29,7 @@ const SignUp = () => {
                     }
                     dispatch({ type: "AUTH", userData })
                     toast.success("Successfully ")
-                    navigate("/")
+                    // navigate("/")
                 }
                 else{
                     throw new Error("Something went wrong")
