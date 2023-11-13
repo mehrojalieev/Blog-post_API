@@ -3,8 +3,10 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../../AppProvider'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useValue } from '../../context/AppProvider';
 
 const Login = () => {
+  const [state, dispatch] = useValue()
   const notify = () => toast.success("Successfully", {toastId: "customId"})
   const notifyError = () => toast.error("Password or Email is Invalid",  {toastId: "customId"})
 
@@ -23,12 +25,11 @@ const Login = () => {
         console.log(response.data)
         if (response.data.token) {
           notify()
-          localStorage.setItem("user-token", JSON.stringify(response.data.token))
-          localStorage.setItem("user-email", JSON.stringify(response.data.data.email))
-          setToken(response.data.token)
-          setTimeout(() => {
-            window.location.pathname = "/"
-          }, 2000)
+            const userData = {
+              user: response.data.data,
+                    token: response.data.token
+            }
+            dispatch({type: "AUTH", userData})
         } else {
           console.log(false);
         }

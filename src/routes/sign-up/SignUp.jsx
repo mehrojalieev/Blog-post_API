@@ -1,6 +1,11 @@
 import { useState } from "react"
 import apiInstance from "../../services/api/index"
+import { useValue } from "../../context/AppProvider"
+
 const SignUp = () => {
+
+    const [state, dispatch] = useValue({})
+
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -10,13 +15,21 @@ const SignUp = () => {
         e.preventDefault()
 
         apiInstance.post('api/auth/signup', {
-           firstname: firstName,
+            firstname: firstName,
             lastname: lastName,
-                email,
+            email,
             password
         })
-        .then(response => console.log(response.data))
-        .catch(err => console.log(err))
+            .then(response => {
+                if (response.data.token) {
+                   const userData = {
+                    user: response.data.data,
+                    token: response.data.token
+                   }
+                    dispatch({ type: "AUTH", userData })
+                }
+            })
+            .catch(err => console.log(err))
     }
     return (
         <form className="auth-form" onSubmit={handleSubmitSignUp}>
