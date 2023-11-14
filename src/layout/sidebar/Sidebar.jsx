@@ -1,8 +1,9 @@
-import React from 'react'
+import "./Sidebar.scss"
+import {NavLink, Link} from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <div className="sidebar"></div>
   )
 }
 

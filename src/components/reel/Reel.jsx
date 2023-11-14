@@ -34,7 +34,7 @@ const Reel = () => {
                             /> 
                             )
                         }
-                        : <Skeleton/>
+                    
 
                 </div>
             </Container>

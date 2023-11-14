@@ -1,6 +1,5 @@
 .singlecard-wrapper{
     display: flex;
-    // align-items: center;
     gap: 0px 20px;
     width: 1250px;
     height: auto;
@@ -27,10 +26,11 @@
         font-family: var(--source-pro);
     }
     p{
-        width: 700px;
+        width: 620px;
         font-size: 18px;
         font-family: var(--source-pro);
         line-height: 24px;
+        word-break: break-all;
     }
 }
 .back-btn{
