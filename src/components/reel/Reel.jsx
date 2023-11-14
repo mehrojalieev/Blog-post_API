@@ -30,10 +30,11 @@ const Reel = () => {
                                 author={article.author}
                                 createAt={article.createAt}
                                 category={article.category}
+                                id={article._id}
                             /> 
                             )
                         }
-                        
+                        : <Skeleton/>
 
                 </div>
             </Container>

@@ -21,7 +21,6 @@ const RouteController = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignUp />} />
             </Route>
-
             <Route path="admin" element={<Admin />}>
                 <Route path="create" element={<Create />} />
                 <Route path="articles" element={<Articles />} />
